@@ -1,0 +1,2 @@
+2020-04-20 23:35:31,295 root INFO fun is running
+2020-04-20 23:36:28,004 root INFO fun is running
