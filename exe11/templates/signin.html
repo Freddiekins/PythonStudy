@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Please Sign In</title>
+</head>
+<body>
+  {% if message %}
+  <p style="color:red">{{ message }}</p>
+  {% endif %}
+  <form action="/signin" method="post">
+    <legend style="text-align:center;"><font size="6">请登录:</font></legend>
+    <p style="text-align:center;"><input name="username" placeholder="学号" value="{{ username }}" size="15"></p>
+    <p style="text-align:center;"><input name="password" placeholder="密码" type="password" size="15"></p>
+    <p style="text-align:center;"><button type="submit">登录</button></p>
+  </form>
+</body>
+</html>

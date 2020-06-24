@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>主页</title>
+  <script>
+    function removeRow(index)
+    {
+      table = document.getElementById('tab')
+      table.rows[0].cells[2]="sdaasdsa"
+      window.location.reload()
+    }
+  </script>
+</head>
+<body>
+  <p>选课系统</p>
+  <table id="tab" style="width:400px" class="table table-striped" >
+    <thead>
+        <tr >
+            <th style="width:120px">课程</th>
+            <th style="width:60px">日期</th>
+            <th style="width:60px">时间</th>
+            <th style="width:120px,text-align:center">是否已选</th>
+        </tr>
+    </thead>
+    <tbody>                
+        {% if article %}
+            {% for ar in article%}
+            <tr onclick="removeRow(this.rowIndex)">
+                <td>{{ar.name}}</td>  
+                <td>{{ar.date}}</td>  
+                <td>{{ar.time}}</td>
+                <td>{{ar.is_selected}}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+        {% else %}
+            <p>No content was found!</p>
+        {% endif %}
+         
+     
+</table>
+</body>
+</html>
