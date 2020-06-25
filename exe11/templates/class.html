@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>主页</title>
+  <script>
+    function removeRow(index)
+    {
+      table = document.getElementById('tab')
+      table.rows[0].cells[2]="sdaasdsa"
+      window.location.reload()
+    }
+  </script>
+</head>
+<body>
+  <p>选课系统</p>
+  <table id="tab" style="width:540px" class="table table-striped" >
+    <thead>
+        <tr >
+            <th style="width:120px">编号</th>
+            <th style="width:120px">课程</th>
+            <th style="width:60px">日期</th>
+            <th style="width:60px">时间</th>
+            <th style="width:120px">是否已选</th>
+        </tr>
+    </thead>
+    <tbody>                
+        {% if article %}
+            {% for ar in article%}
+            <tr onclick="removeRow(this.rowIndex)">
+                <td style="text-align:center" >{{ar.num}}</td>  
+                <td>{{ar.name}}</td>  
+                <td>{{ar.date}}</td>  
+                <td>{{ar.time}}</td>
+                <td style="text-align:center" >{{ar.is_selected}}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+        {% else %}
+            <p>No content was found!</p>
+        {% endif %}
+  </table>
+  {% if msg %}
+  <p style="color:red ;left: 1000px; position: absolute; top: 10px">{{ msg }}</p>
+  {% endif %}
+  <form action="/class" method="post">
+    <p style="left: 1000px; position: absolute; top: 30px;"><input name="cls_num" placeholder="输入课程编号" value="{{ cls_num }}"></p>
+    <p style="left: 1070px; position: absolute; top: 60px;"><button type="submit" >选课</button></p>
+  </form>
+</body>
+</html>
